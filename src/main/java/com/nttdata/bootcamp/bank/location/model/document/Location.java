@@ -18,6 +18,5 @@ public class Location {
     private String state;
     private String codeLocationType;
     private String codeUbigeo;
-    private String codeEmployee;
 
 }
