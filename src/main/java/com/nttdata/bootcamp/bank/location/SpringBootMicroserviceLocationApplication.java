@@ -26,13 +26,6 @@ public class SpringBootMicroserviceLocationApplication implements CommandLineRun
     @Override
     public void run(String... args) throws Exception {
         log.info("Init Location");
-        // code to generate sample data, if database and collection does not exist, this code creates them
-        Flux.just(
-        new Location("1","PR-00009", "This", "1","0.0","111", "87887")
-                )
-                .flatMap(c -> dao.save(c))
-                .subscribe(c -> log.info("Insert: " + c.getId() + " " + c.getName()));
-
     }
 
 }
