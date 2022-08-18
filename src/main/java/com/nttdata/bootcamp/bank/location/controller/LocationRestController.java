@@ -11,41 +11,41 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/api/location")
-public class ProductRestController {
+public class LocationRestController {
 
     private static final Logger log = LoggerFactory.getLogger(LocationServiceInte.class);
 
     @Autowired
-    private LocationServiceInte productServiceInte;
+    private LocationServiceInte locationServiceInte;
 
     @PostMapping("create")
     public Mono<Location> create(@RequestBody final Location location) {
         log.debug("Begin RestController create Location");
-        return productServiceInte.create(location);
+        return locationServiceInte.create(location);
     }
 
     @GetMapping
     public Flux<Location> readAll() {
         log.debug("Begin RestController readAll Location");
-        return productServiceInte.readAll();
+        return locationServiceInte.readAll();
     }
 
     @GetMapping("/readByCodeLocation/{codeLocation}")
     public Mono<Location> readByCodeLocation(@PathVariable String codeLocation) {
         log.debug("Begin RestController readByCodeLocation Location");
-        return productServiceInte.readByCodeLocation(codeLocation);
+        return locationServiceInte.readByCodeLocation(codeLocation);
     }
 
     @PutMapping("update/{id}")
     public Mono<Location> updateById(@RequestBody final Location location, @PathVariable("id") final String id) {
         log.debug("Begin RestController updateById Location");
-        return productServiceInte.updateById(id, location);
+        return locationServiceInte.updateById(id, location);
     }
 
     @DeleteMapping("delete/{id}")
     public Mono<Void> deleteById(@PathVariable final String id) {
         log.debug("Begin RestController deleteById Location");
-        return productServiceInte.deleteById(id);
+        return locationServiceInte.deleteById(id);
     }
 
 }
